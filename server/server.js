@@ -4,6 +4,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { scrapePowerball } from "./scraper.js";
 import Result from "./models/Result.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 
 dotenv.config();
 const app = express();

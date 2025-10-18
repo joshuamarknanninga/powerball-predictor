@@ -1,19 +1,19 @@
 {
   "name": "powerball-predictor",
   "version": "1.0.0",
-  "description": "Logs all Powerball results automatically.  Displays graphs of number frequency.  Predicts next Powerball numbers using basic statistical or ML methods.  Is a PWA for offline access.  Uses MongoDB to store results and predictions.",
-  "main": "index.js",
+  "private": true,
+  "description": "Full-stack Powerball Scraper & Predictor — React + Vite + Express + MongoDB",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix frontend",
+    "start": "npm run build && npm run server",
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix frontend",
+    "clean": "rimraf frontend/dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joshuamarknanninga/powerball-predictor.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/joshuamarknanninga/powerball-predictor/issues"
-  },
-  "homepage": "https://github.com/joshuamarknanninga/powerball-predictor#readme"
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^6.0.0"
+  }
 }
+
